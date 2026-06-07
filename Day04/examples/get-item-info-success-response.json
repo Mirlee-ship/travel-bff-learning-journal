@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "message": "",
+  "requestId": "demo-request-id-001",
+  "data": {
+    "basicInfo": {
+      "itemId": "demo-item-001",
+      "itemName": "云南六日游",
+      "categoryOne": "旅游",
+      "categoryTwo": "长途游",
+      "salePrice": 399900,
+      "costDays": 6,
+      "headPic": "https://example.com/demo-head-pic.jpg",
+      "supplySource": "TRAVEL_AGENCY",
+      "status": "ONLINE"
+    },
+    "extraInfo": {
+      "tags": ["亲子游", "纯玩团"],
+      "features": ["经典线路", "当地向导", "无购物"],
+      "supplierName": "示例旅游供应商",
+      "notice": "下单前请确认出行日期和库存情况",
+      "belinkOwner": "demo-owner"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "url": "POST /commodity/get-item-info",
+  "description": "商品详情接口请求示例。前端从商品列表页拿到 itemId 后，使用 itemId 查询商品详情。",
+  "payload": {
+    "itemId": "demo-item-001"
+  }
+}

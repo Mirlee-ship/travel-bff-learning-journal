@@ -64,7 +64,7 @@
 
 | Day03 | 商品检索 searchItem | \[Day03 README](Day03/README.md) | 理解搜索、筛选、排序、分页、批量补充如何收敛到统一接口 |
 
-
+| Day04 | 商品详情 getItemInfo | \[Day04 README](Day04/README.md) | 理解 itemId 查询详情、basicInfo/extraInfo 结构化返回 |
 
 \---
 

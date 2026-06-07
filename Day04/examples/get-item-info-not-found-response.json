@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "message": "商品不存在或已下架",
+  "errorCode": -1,
+  "requestId": "demo-request-id-002",
+  "data": null
+}
