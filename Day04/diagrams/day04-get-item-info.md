@@ -1,73 +1,49 @@
-﻿\# Day04锛氬晢鍝佽鎯呮帴鍙ｈ皟鐢ㄩ摼鍥?
+# Day04: getItemInfo Call Chain
 
-
-
-\## getItemInfo 瀹屾暣璋冪敤閾?
-
-
+## getItemInfo full call chain
 
 ```mermaid
-
 flowchart TD
-
-   A\["鐢ㄦ埛鍦ㄥ晢鍝佸垪琛ㄩ〉鐐瑰嚮鍟嗗搧"] --> B\["鍓嶇鎷垮埌 itemId"]
-
-   B --> C\["POST /commodity/get-item-info"]
-
-   C --> D\["鎵ц getItemInfo"]
-
-   D --> E\["鏍规嵁 itemId 鏌ヨ鍟嗗搧鍩虹淇℃伅"]
-
-   E --> F\["鏌ヨ鍟嗗搧鎵╁睍淇℃伅"]
-
-   F --> G\["缁勮 basicInfo"]
-
-   G --> H\["缁勮 extraInfo"]
-
-   H --> I\["杩斿洖 basicInfo 鍜?extraInfo"]
-
-   I --> J\["鍓嶇娓叉煋鍟嗗搧璇︽儏椤?]
-
+    A["User clicks an item in product list"] --> B["Frontend gets itemId"]
+    B --> C["POST /commodity/get-item-info"]
+    C --> D["Run getItemInfo"]
+    D --> E["Query basic item data by itemId"]
+    E --> F["Query extra item data"]
+    F --> G["Build basicInfo"]
+    G --> H["Build extraInfo"]
+    H --> I["Return basicInfo and extraInfo"]
+    I --> J["Frontend renders item detail page"]
 ```
 
-
-
-\## 绠€鍖栫増璋冪敤閾?
-
-
+## Simplified call chain
 
 ```text
-
-鍒楄〃椤电偣鍑诲晢鍝?
-
-鈫?鎷垮埌 itemId
-
-鈫?璇锋眰 get-item-info
-
-鈫?鏌ヨ鍟嗗搧璇︽儏
-
-鈫?缁勮 basicInfo + extraInfo
-
-鈫?杩斿洖鍓嶇
-
-鈫?娓叉煋璇︽儏椤?
-
+Product list page
+→ user clicks one item
+→ frontend gets itemId
+→ request get-item-info
+→ backend queries item detail
+→ build basicInfo + extraInfo
+→ return to frontend
+→ render detail page
 ```
 
+## 中文讲解
 
+这个图表达的是商品详情页的调用链：
 
-\## 闈㈣瘯璁茶В閲嶇偣
+1. 用户先在商品列表页点击某个商品。
+2. 前端从列表数据里拿到 `itemId`。
+3. 前端请求 `POST /commodity/get-item-info`。
+4. 后端执行 `getItemInfo`。
+5. 后端根据 `itemId` 查询商品基础信息和扩展信息。
+6. 最后组装成 `basicInfo + extraInfo` 返回给前端。
+7. 前端根据这两个模块渲染商品详情页。
 
+## 面试讲解重点
 
-
-1\. `getItemInfo` 鏄鎯呮帴鍙ｏ紝涓嶆槸鎼滅储鎺ュ彛銆?
-
-2\. 瀹冨彧闇€瑕?`itemId`锛屽洜涓哄晢鍝佸凡缁忓湪鍒楄〃椤佃閫変腑浜嗐€?
-
-3\. `basicInfo` 鏀惧晢鍝佸熀纭€瀛楁銆?
-
-4\. `extraInfo` 鏀捐鎯呮墿灞曞瓧娈点€?
-
-5\. 鎷嗘垚涓や釜妯″潡鏂逛究鍓嶇鎸夋ā鍧楁覆鏌擄紝涔熸柟渚垮悗缁墿灞曘€?
-
-
+1. `getItemInfo` 是详情接口，不是搜索接口。
+2. 它只需要 `itemId`，因为商品已经在列表页被选中了。
+3. `basicInfo` 放商品基础字段。
+4. `extraInfo` 放详情扩展字段。
+5. 拆成两个模块方便前端按模块渲染，也方便后续扩展。
