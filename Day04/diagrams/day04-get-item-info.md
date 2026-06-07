@@ -1,8 +1,8 @@
-\# Day04：商品详情接口调用链图
+﻿\# Day04锛氬晢鍝佽鎯呮帴鍙ｈ皟鐢ㄩ摼鍥?
 
 
 
-\## getItemInfo 完整调用链
+\## getItemInfo 瀹屾暣璋冪敤閾?
 
 
 
@@ -10,63 +10,64 @@
 
 flowchart TD
 
-&#x20;   A\["用户在商品列表页点击商品"] --> B\["前端拿到 itemId"]
+   A\["鐢ㄦ埛鍦ㄥ晢鍝佸垪琛ㄩ〉鐐瑰嚮鍟嗗搧"] --> B\["鍓嶇鎷垮埌 itemId"]
 
-&#x20;   B --> C\["POST /commodity/get-item-info"]
+   B --> C\["POST /commodity/get-item-info"]
 
-&#x20;   C --> D\["执行 getItemInfo"]
+   C --> D\["鎵ц getItemInfo"]
 
-&#x20;   D --> E\["根据 itemId 查询商品基础信息"]
+   D --> E\["鏍规嵁 itemId 鏌ヨ鍟嗗搧鍩虹淇℃伅"]
 
-&#x20;   E --> F\["查询商品扩展信息"]
+   E --> F\["鏌ヨ鍟嗗搧鎵╁睍淇℃伅"]
 
-&#x20;   F --> G\["组装 basicInfo"]
+   F --> G\["缁勮 basicInfo"]
 
-&#x20;   G --> H\["组装 extraInfo"]
+   G --> H\["缁勮 extraInfo"]
 
-&#x20;   H --> I\["返回 basicInfo 和 extraInfo"]
+   H --> I\["杩斿洖 basicInfo 鍜?extraInfo"]
 
-&#x20;   I --> J\["前端渲染商品详情页"]
+   I --> J\["鍓嶇娓叉煋鍟嗗搧璇︽儏椤?]
 
 ```
 
 
 
-\## 简化版调用链
+\## 绠€鍖栫増璋冪敤閾?
 
 
 
 ```text
 
-列表页点击商品
+鍒楄〃椤电偣鍑诲晢鍝?
 
-→ 拿到 itemId
+鈫?鎷垮埌 itemId
 
-→ 请求 get-item-info
+鈫?璇锋眰 get-item-info
 
-→ 查询商品详情
+鈫?鏌ヨ鍟嗗搧璇︽儏
 
-→ 组装 basicInfo + extraInfo
+鈫?缁勮 basicInfo + extraInfo
 
-→ 返回前端
+鈫?杩斿洖鍓嶇
 
-→ 渲染详情页
+鈫?娓叉煋璇︽儏椤?
 
 ```
 
 
 
-\## 面试讲解重点
+\## 闈㈣瘯璁茶В閲嶇偣
 
 
 
-1\. `getItemInfo` 是详情接口，不是搜索接口。
+1\. `getItemInfo` 鏄鎯呮帴鍙ｏ紝涓嶆槸鎼滅储鎺ュ彛銆?
 
-2\. 它只需要 `itemId`，因为商品已经在列表页被选中了。
+2\. 瀹冨彧闇€瑕?`itemId`锛屽洜涓哄晢鍝佸凡缁忓湪鍒楄〃椤佃閫変腑浜嗐€?
 
-3\. `basicInfo` 放商品基础字段。
+3\. `basicInfo` 鏀惧晢鍝佸熀纭€瀛楁銆?
 
-4\. `extraInfo` 放详情扩展字段。
+4\. `extraInfo` 鏀捐鎯呮墿灞曞瓧娈点€?
 
-5\. 拆成两个模块方便前端按模块渲染，也方便后续扩展。
+5\. 鎷嗘垚涓や釜妯″潡鏂逛究鍓嶇鎸夋ā鍧楁覆鏌擄紝涔熸柟渚垮悗缁墿灞曘€?
+
 
