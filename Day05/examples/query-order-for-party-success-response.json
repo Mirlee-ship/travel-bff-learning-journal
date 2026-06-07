@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "message": "",
+  "requestId": "demo-request-id-005",
+  "data": {
+    "list": [
+      {
+        "orderId": "demo-order-001",
+        "itemId": "demo-item-001",
+        "itemName": "一日聚露营套餐",
+        "status": "PENDING_FOR_SUPPLIER",
+        "contactName": "张三",
+        "contactMobile": "13800000000",
+        "createdAt": 1710000000000,
+        "fulfillAt": 1712000000000,
+        "quantity": 2,
+        "remainQuantity": 2,
+        "salePrice": 19900,
+        "actuallyPaidFee": 39800,
+        "comboName": "周末露营双人套餐",
+        "privateButlerName": "示例管家",
+        "adjustmentPaidFee": 0,
+        "hasRelateOrder": false,
+        "hasMergedOrder": false
+      }
+    ],
+    "total": 1
+  }
+}

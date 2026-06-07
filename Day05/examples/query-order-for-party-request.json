@@ -1,0 +1,17 @@
+{
+  "moduleName": "trade-bff",
+  "serviceName": "web",
+  "funcName": "queryOrderForParty",
+  "param": {
+    "statusList": ["PENDING_FOR_SUPPLIER"],
+    "categoryList": ["ONE_SECOND_PARTY"],
+    "itemName": "露营",
+    "nickName": "张三",
+    "mobile": "13800000000",
+    "orderNo": "demo-order-no",
+    "createdAt": [1710000000000, 1711000000000],
+    "fulfilledAt": [],
+    "pageIndex": 0,
+    "pageSize": 20
+  }
+}

@@ -66,6 +66,8 @@
 
 | Day04 | 商品详情 getItemInfo | \[Day04 README](Day04/README.md) | 理解 itemId 查询详情、basicInfo/extraInfo 结构化返回 |
 
+| Day05 | 一日聚订单列表 queryOrderForParty | \[Day05 README](Day05/README.md) | 理解后台订单筛选、分页、字段补充与 list/total 返回 |
+
 \---
 
 

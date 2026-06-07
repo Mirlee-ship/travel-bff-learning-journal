@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "message": "",
+  "requestId": "demo-request-id-006",
+  "data": {
+    "list": [],
+    "total": 0
+  },
+  "description": "空结果表示查询成功但没有匹配订单，不是系统异常。"
+}
