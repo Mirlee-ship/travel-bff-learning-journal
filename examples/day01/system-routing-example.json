@@ -1,0 +1,29 @@
+{
+  "description": "项目统一入口路由的脱敏示例",
+  "examples": [
+    {
+      "scene": "旅行社商品搜索",
+      "moduleName": "commodity",
+      "serviceName": "search",
+      "funcName": "searchItem",
+      "param": {
+        "keyword": "脱敏示例关键词",
+        "pageIndex": 0,
+        "pageSize": 10
+      }
+    },
+    {
+      "scene": "一日聚订单列表",
+      "moduleName": "trade-bff",
+      "serviceName": "web",
+      "funcName": "queryOrderForParty",
+      "param": {
+        "categoryList": [
+          "ONE_SECOND_PARTY"
+        ],
+        "pageIndex": 0,
+        "pageSize": 10
+      }
+    }
+  ]
+}
