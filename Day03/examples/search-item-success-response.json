@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "data": {
+    "data": [
+      {
+        "id": "demo-item-001",
+        "headPic": "https://example.invalid/demo-item-001.jpg",
+        "itemName": "云南六日游脱敏示例",
+        "categoryOne": "TOURISM",
+        "categoryTwo": "GROUP_TOUR",
+        "tags": [
+          "亲子游",
+          "纯玩"
+        ],
+        "cities": [
+          "昆明",
+          "大理"
+        ],
+        "salePrice": 399900,
+        "settlementPrice": 299900,
+        "profit": 100000,
+        "profitRate": 25,
+        "isTravelAgent": 1,
+        "supplySource": "DEMO_SOURCE",
+        "travelDays": 6
+      }
+    ],
+    "total": 1
+  },
+  "message": "",
+  "requestId": "demo-request-id"
+}
