@@ -1,4 +1,8 @@
-\# Day 2：biz 云函数动态路由
+\# Day 2：biz 统一入口调用链图
+
+
+
+\## 一日聚订单列表调用链
 
 
 
@@ -6,91 +10,101 @@
 
 flowchart TD
 
-&#x20;   A\[页面或外部系统发起请求] --> B\[biz main 统一入口]
+&#x20;   A\["后台页面发起订单查询"] --> B\["biz/index.ts 统一入口"]
+
+&#x20;   B --> C\["读取 moduleName、serviceName、funcName"]
+
+&#x20;   C --> D\["定位 trade-bff 模块"]
+
+&#x20;   D --> E\["加载 web Service"]
+
+&#x20;   E --> F\["执行 queryOrderForParty"]
+
+&#x20;   F --> G\["业务方法返回 list 和 total"]
+
+&#x20;   G --> H\["统一入口包装 success 和 data"]
+
+&#x20;   H --> I\["返回前端页面"]
 
 
 
-&#x20;   B --> C{是否 HTTP 请求}
+&#x20;   F -->|执行异常| J\["catch 记录错误日志"]
+
+&#x20;   J --> K\["构造统一失败响应"]
+
+&#x20;   K --> I
 
 
 
-&#x20;   C -->|否| D\[从 event 读取 moduleName serviceName funcName param]
+&#x20;   H --> L\["finally 清理请求上下文"]
 
-&#x20;   C -->|是| E\[从 URL path 解析 moduleName serviceName funcName]
-
-&#x20;   E --> F\[组装 query 和 body]
-
-&#x20;   
-
-&#x20;   D --> G\[checkOffLineApi]
-
-&#x20;   F --> G
-
-
-
-&#x20;   G --> H\[switchService.initConfig]
-
-&#x20;   H --> I\[调用 \_main]
-
-
-
-&#x20;   I --> J{serviceName 是否为 main}
-
-
-
-&#x20;   J -->|是| K\[加载 module/service.js]
-
-&#x20;   J -->|否| L\[加载 module/service/serviceName.js]
-
-
-
-&#x20;   K --> M\[兼容 default export]
-
-&#x20;   L --> M
-
-
-
-&#x20;   M --> N\[执行 service funcName]
-
-&#x20;   N --> O{执行是否成功}
-
-
-
-&#x20;   O -->|成功| P\[记录耗时和结果日志]
-
-&#x20;   P --> Q\[包装成功响应或返回原始结果]
-
-
-
-&#x20;   O -->|失败| R\[记录错误和发送告警]
-
-&#x20;   R --> S\[包装失败响应]
-
-
-
-&#x20;   Q --> T\[清理 UserContext 并等待日志推送]
-
-&#x20;   S --> T
-
-
-
-&#x20;   T --> U\[返回调用方]
+&#x20;   K --> L
 
 ```
 
 
 
-\## 核心结论
+\## 路由字段示例
 
 
 
-1\. `main` 负责请求生命周期管理。
+```text
 
-2\. `\_main` 负责动态加载 Service 并执行方法。
+moduleName = trade-bff
 
-3\. `moduleName + serviceName + funcName` 共同组成动态路由地址。
+serviceName = web
 
-4\. 普通请求使用统一响应包装，特殊 HTTP 回调可以返回原始结果。
+funcName = queryOrderForParty
 
-5\. `try/catch/finally` 负责成功、失败、告警和上下文清理。
+```
+
+
+
+对应关系：
+
+
+
+```text
+
+trade-bff
+
+→ service/web
+
+→ queryOrderForParty(param, userContext)
+
+```
+
+
+
+\## 简化记忆
+
+
+
+```text
+
+前三个路由字段负责“找谁”
+
+param 负责“让他做什么”
+
+```
+
+
+
+\## 统一入口和业务方法的职责
+
+
+
+```text
+
+统一入口：
+
+路由、日志、异常、响应包装、上下文清理
+
+
+
+queryOrderForParty：
+
+处理订单筛选、查询列表和总数、补充数据、组装结果
+
+```
 

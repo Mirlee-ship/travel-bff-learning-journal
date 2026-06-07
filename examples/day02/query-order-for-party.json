@@ -1,0 +1,20 @@
+{
+  "moduleName": "trade-bff",
+  "serviceName": "web",
+  "funcName": "queryOrderForParty",
+  "param": {
+    "categoryList": [
+      "ONE_SECOND_PARTY"
+    ],
+    "statusList": [
+      "READY_TO_FULFILL"
+    ],
+    "itemName": "脱敏示例商品",
+    "pageIndex": 0,
+    "pageSize": 10
+  },
+  "traceId": "demo-trace-id",
+  "operateUser": {
+    "name": "演示用户"
+  }
+}
