@@ -8,37 +8,29 @@
 
 ```mermaid
 
-flowchart TD
+graph TD;
 
-&#x20;   A\["后台页面发起订单查询"] --> B\["biz/index.ts 统一入口"]
+&#x20;   A\["后台页面发起订单查询"] --> B\["biz/index.ts 统一入口"];
 
-&#x20;   B --> C\["读取 moduleName、serviceName、funcName"]
+&#x20;   B --> C\["读取 moduleName、serviceName、funcName"];
 
-&#x20;   C --> D\["定位 trade-bff 模块"]
+&#x20;   C --> D\["定位 trade-bff 模块"];
 
-&#x20;   D --> E\["加载 web Service"]
+&#x20;   D --> E\["加载 web Service"];
 
-&#x20;   E --> F\["执行 queryOrderForParty"]
+&#x20;   E --> F\["执行 queryOrderForParty"];
 
-&#x20;   F --> G\["业务方法返回 list 和 total"]
+&#x20;   F --> G\["业务方法返回 list 和 total"];
 
-&#x20;   G --> H\["统一入口包装 success 和 data"]
+&#x20;   G --> H\["统一入口包装 success 和 data"];
 
-&#x20;   H --> I\["返回前端页面"]
+&#x20;   H --> I\["返回前端页面"];
 
+&#x20;   F --> J\["执行异常时进入 catch"];
 
+&#x20;   J --> K\["记录日志并构造失败响应"];
 
-&#x20;   F -->|执行异常| J\["catch 记录错误日志"]
-
-&#x20;   J --> K\["构造统一失败响应"]
-
-&#x20;   K --> I
-
-
-
-&#x20;   H --> L\["finally 清理请求上下文"]
-
-&#x20;   K --> L
+&#x20;   K --> I;
 
 ```
 
@@ -84,27 +76,27 @@ trade-bff
 
 前三个路由字段负责“找谁”
 
-param 负责“让他做什么”
+param 负责“让业务方法做什么”
 
 ```
 
 
 
-\## 统一入口和业务方法的职责
+\## 职责划分
 
 
 
 ```text
 
-统一入口：
+biz/index.ts：
 
-路由、日志、异常、响应包装、上下文清理
+路由、日志、异常处理、响应包装、上下文清理
 
 
 
 queryOrderForParty：
 
-处理订单筛选、查询列表和总数、补充数据、组装结果
+处理筛选条件、查询列表和总数、补充关联数据、组装结果
 
 ```
 
