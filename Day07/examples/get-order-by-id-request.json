@@ -1,0 +1,56 @@
+
+"moduleName": "trade-bff",
+"serviceName": "web",
+"funcName": "getOrderById",
+"param": {
+"tradeOrderId": "demo-order-001"
+},
+"description": "脱敏的订单详情请求示例。tradeOrderId 通常来自订单列表当前行。"
+}
+
+FILE: Day07/examples/get-order-by-id-success-response.json
+
+{
+"success": true,
+"message": "",
+"requestId": "demo-request-id-007",
+"data": {
+"basicOrderInfo": {
+"tradeOrderId": "demo-order-001",
+"orderNo": "demo-order-no-001",
+"status": "PENDING_FOR_SUPPLIER",
+"createdAt": 1710000000000,
+"quantity": 2,
+"actuallyPaidFee": 39800,
+"contactName": "脱敏联系人",
+"contactMobile": "1380000",
+"sourceType": "DEMO_SOURCE"
+},
+"commodityInfo": {
+"itemId": "demo-item-001",
+"itemName": "一日聚露营套餐",
+"comboName": "周末双人套餐",
+"salePrice": 19900,
+"supplierName": "脱敏供应商"
+},
+"fulfillmentInfo": {
+"fulfilledAt": 1712000000000,
+"meetingPlace": "脱敏集合地点",
+"leaderName": "脱敏领队",
+"fulfillmentStatus": "WAITING"
+},
+"tourismInfo": {
+"travelerCount": 2,
+"departureCity": "示例城市",
+"travelers": [
+{
+"name": "脱敏出行人",
+"mobile": "1390000"
+}
+]
+},
+"groupBookingInfo": null,
+"subOrderInfo": []
+},
+"description": "本响应仅用于说明详情模块结构，不代表真实生产字段全集。"
+}

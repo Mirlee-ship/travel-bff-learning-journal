@@ -70,6 +70,8 @@
 
 | Day06 | 一日聚订单汇总 querySummaryInfoForParty | \[Day06 README](Day06/README.md) | 理解订单汇总统计、商品维度聚合和统计口径差异 |
 
+| Day07 | 订单详情聚合 getOrderById | \[Day07 README](Day07/README.md) | 理解 tradeOrderId、详情模块和跨业务域数据聚合 |
+
 \---
 
 

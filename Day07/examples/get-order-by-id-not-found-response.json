@@ -1,0 +1,8 @@
+{
+"success": false,
+"message": "订单不存在或当前无权查看",
+"errorCode": -1,
+"requestId": "demo-request-id-008",
+"data": null,
+"description": "详情接口无法根据 tradeOrderId 定位订单时的脱敏示例。"
+}
