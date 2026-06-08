@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "message": "",
+  "requestId": "demo-request-id-007",
+  "data": {
+    "summaryList": []
+  },
+  "description": "空汇总表示当前筛选条件下没有可统计数据，不是系统异常。"
+}

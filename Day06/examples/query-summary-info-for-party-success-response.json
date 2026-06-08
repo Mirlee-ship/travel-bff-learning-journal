@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "message": "",
+  "requestId": "demo-request-id-006",
+  "data": {
+    "summaryList": [
+      {
+        "itemId": "demo-item-001",
+        "itemName": "一日聚露营套餐",
+        "orderCount": 20,
+        "quantity": 40,
+        "totalSalePrice": 798000,
+        "summaryScope": "DEMO_SUMMARY_SCOPE"
+      },
+      {
+        "itemId": "demo-item-002",
+        "itemName": "亲子一日游",
+        "orderCount": 12,
+        "quantity": 24,
+        "totalSalePrice": 599900,
+        "summaryScope": "DEMO_SUMMARY_SCOPE"
+      }
+    ]
+  },
+  "description": "每一行表示一个商品维度的汇总统计结果，不是一笔订单明细。"
+}

@@ -1,0 +1,15 @@
+{
+  "moduleName": "trade-bff",
+  "serviceName": "web",
+  "funcName": "querySummaryInfoForParty",
+  "param": {
+    "categoryList": ["ONE_SECOND_PARTY"],
+    "statusList": ["PENDING_FOR_SUPPLIER"],
+    "itemName": "露营",
+    "createdAt": [1710000000000, 1711000000000],
+    "fulfilledAt": [],
+    "pageIndex": 0,
+    "pageSize": 20
+  },
+  "description": "一日聚订单汇总接口请求示例。筛选条件和订单列表接口相近，但返回的是商品维度汇总结果。"
+}
