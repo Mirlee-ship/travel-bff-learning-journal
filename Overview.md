@@ -74,6 +74,8 @@
 
 | Day08 | 订单分片导出 batchDownloadTradeOrderRawData | \[Day08 README](Day08/README.md) | 理解列表导出口径、分页分片和 headerMap/data 返回 |
 
+| Day09 | 订单整包导出 batchDownloadTradeOrder | \[Day09 README](Day09/README.md) | 理解导出字段转换、Excel 生成、对象存储上传和下载地址返回 |
+
 \---
 
 
