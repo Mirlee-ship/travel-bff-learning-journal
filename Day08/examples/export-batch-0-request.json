@@ -1,0 +1,15 @@
+{
+"moduleName": "trade-bff",
+"serviceName": "web",
+"funcName": "batchDownloadTradeOrderRawData",
+"param": {
+"categoryList": ["ONE_SECOND_PARTY"],
+"statusList": ["PENDING_FOR_SUPPLIER"],
+"itemName": "露营",
+"createdAt": [1710000000000, 1711000000000],
+"fulfilledAt": [],
+"pageIndex": 0,
+"pageSize": 100
+},
+"description": "脱敏的第一批导出请求示例。pageIndex 为 0。"
+}

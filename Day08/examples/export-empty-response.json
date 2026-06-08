@@ -1,0 +1,14 @@
+{
+"success": true,
+"message": "",
+"requestId": "demo-request-id-009",
+"data": {
+"headerMap": {
+"orderNo": "订单号",
+"itemName": "商品名称",
+"status": "订单状态"
+},
+"data": []
+},
+"description": "空数据表示当前筛选条件或当前批次没有订单，不是系统异常。"
+}

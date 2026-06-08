@@ -72,6 +72,8 @@
 
 | Day07 | 订单详情聚合 getOrderById | \[Day07 README](Day07/README.md) | 理解 tradeOrderId、详情模块和跨业务域数据聚合 |
 
+| Day08 | 订单分片导出 batchDownloadTradeOrderRawData | \[Day08 README](Day08/README.md) | 理解列表导出口径、分页分片和 headerMap/data 返回 |
+
 \---
 
 
