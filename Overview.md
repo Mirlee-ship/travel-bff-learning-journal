@@ -84,6 +84,8 @@
 
 | Day13 | 用户身份上下文、鉴权与权限边界 | \[Day13 README](Day13/README.md) | 理解 param/userContext、认证授权、门店数据权限、内部 token 和上下文清理 |
 
+| Day14 | 接口测试、前后端联调与错误定位 | \[Day14 README](Day14/README.md) | 理解 Network 检查、参数核对、响应分类、traceId 日志定位和最小复现 |
+
 \---
 
 

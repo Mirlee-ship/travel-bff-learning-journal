@@ -1,0 +1,21 @@
+{
+"moduleName": "trade-bff",
+"serviceName": "web",
+"funcName": "queryOrderForParty",
+"param": {
+"statusList": [
+"PENDING_FOR_SUPPLIER"
+],
+"categoryList": [
+"ONE_SECOND_PARTY"
+],
+"itemName": "露营",
+"createdAt": [
+1710000000000,
+1711000000000
+],
+"pageIndex": 0,
+"pageSize": 20
+},
+"description": "脱敏的订单列表联调请求示例。"
+}
