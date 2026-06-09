@@ -1,0 +1,15 @@
+{
+"success": true,
+"data": {
+"taskId": "demo-task-001",
+"taskType": "ORDER_EXPORT",
+"status": "PROCESSING",
+"progress": 60,
+"processedCount": 600,
+"totalCount": 1000,
+"retryCount": 0,
+"result": null,
+"errorMessage": null
+},
+"description": "学习模拟：异步任务执行中的状态响应。"
+}

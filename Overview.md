@@ -80,6 +80,8 @@
 
 | Day11 | 日志、异常处理与监控告警 | \[Day11 README](Day11/README.md) | 理解 apiContext、异常分类、飞书告警和请求上下文清理 |
 
+| Day12 | 异步任务、定时任务与 Trigger | \[Day12 README](Day12/README.md) | 理解 taskId、任务状态、Trigger、Job、幂等、分批处理与失败重试 |
+
 \---
 
 

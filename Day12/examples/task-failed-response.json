@@ -1,0 +1,15 @@
+{
+"success": true,
+"data": {
+"taskId": "demo-task-001",
+"taskType": "ORDER_EXPORT",
+"status": "FAILED",
+"progress": 60,
+"processedCount": 600,
+"totalCount": 1000,
+"retryCount": 3,
+"result": null,
+"errorMessage": "Object storage upload failed"
+},
+"description": "学习模拟：任务达到最大重试次数后的失败状态。"
+}

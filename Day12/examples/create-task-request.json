@@ -1,0 +1,10 @@
+{
+"taskType": "ORDER_EXPORT",
+"param": {
+"categoryList": ["ONE_SECOND_PARTY"],
+"statusList": ["PENDING_FOR_SUPPLIER"],
+"createdAt": [1710000000000, 1711000000000],
+"itemName": "露营"
+},
+"description": "学习模拟：创建订单导出异步任务的请求。"
+}
