@@ -1,0 +1,19 @@
+{
+"sourceData": {
+"orderNo": "demo-order-001",
+"itemName": "一日聚露营套餐",
+"status": "PENDING_FOR_SUPPLIER",
+"actuallyPaidFee": 39800,
+"createdAt": 1710000000000,
+"hasMergedOrder": false
+},
+"exportRow": {
+"订单号": "demo-order-001",
+"商品名称": "一日聚露营套餐",
+"订单状态": "待供应商确认",
+"实付金额": "398.00",
+"下单时间": "2026-01-01 10:00:00",
+"是否合并单": "否"
+},
+"description": "示例说明原始字段如何转换成运营可读的 Excel 行，不代表真实字段全集。"
+}

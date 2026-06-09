@@ -1,0 +1,14 @@
+{
+"moduleName": "trade-bff",
+"serviceName": "web",
+"funcName": "batchDownloadTradeOrder",
+"param": {
+"categoryList": ["ONE_SECOND_PARTY"],
+"statusList": ["PENDING_FOR_SUPPLIER"],
+"itemName": "露营",
+"createdAt": [1710000000000, 1711000000000],
+"fulfilledAt": [],
+"sourceType": "DEMO_SOURCE"
+},
+"description": "脱敏的订单整包导出请求。导出条件应尽量与列表筛选保持一致。"
+}

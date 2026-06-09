@@ -1,0 +1,11 @@
+{
+"success": true,
+"message": "",
+"requestId": "demo-request-id-009",
+"data": {
+"fileName": "demo-order-export.xlsx",
+"downloadUrl": "https://example.invalid/demo-order-export.xlsx",
+"expireAt": 1780000000000
+},
+"description": "脱敏的整包导出成功响应。真实字段以接口实现为准。"
+}
