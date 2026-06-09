@@ -1,0 +1,21 @@
+{
+"moduleName": "trade-bff",
+"serviceName": "web",
+"funcName": "queryOrderForParty",
+"param": {
+"statusList": ["PENDING_FOR_SUPPLIER"],
+"categoryList": ["ONE_SECOND_PARTY"],
+"pageIndex": 0,
+"pageSize": 20
+},
+"traceId": "demo-trace-id-011",
+"isSuccess": 1,
+"timeCost": 286,
+"resultSummary": {
+"listSize": 20,
+"total": 368
+},
+"unionId": "masked-union-id",
+"openId": "masked-open-id",
+"description": "脱敏的成功结构化日志示例，不保存真实敏感数据。"
+}

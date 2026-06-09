@@ -1,0 +1,19 @@
+{
+"cloudFunction": "biz",
+"traceId": "demo-trace-id-012",
+"moduleName": "trade-bff",
+"serviceName": "web",
+"funcName": "queryOrderForParty",
+"funcParam": {
+"statusList": ["PENDING_FOR_SUPPLIER"],
+"pageIndex": 0,
+"pageSize": 20
+},
+"unionId": "masked-union-id",
+"openId": "masked-open-id",
+"error": {
+"message": "Downstream service unavailable",
+"stack": "Error: Downstream service unavailable at masked-stack"
+},
+"description": "脱敏的系统异常告警上下文，用于说明飞书告警所需的定位信息。"
+}
