@@ -82,6 +82,8 @@
 
 | Day12 | 异步任务、定时任务与 Trigger | \[Day12 README](Day12/README.md) | 理解 taskId、任务状态、Trigger、Job、幂等、分批处理与失败重试 |
 
+| Day13 | 用户身份上下文、鉴权与权限边界 | \[Day13 README](Day13/README.md) | 理解 param/userContext、认证授权、门店数据权限、内部 token 和上下文清理 |
+
 \---
 
 
