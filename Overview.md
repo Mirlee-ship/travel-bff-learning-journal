@@ -58,6 +58,22 @@
 
 |---|---|---|---|
 
+
+
+\## 面试主讲项目
+
+
+
+| 主讲内容 | 入口 |
+
+|---|---|
+
+| 旅行社商品搜索接口 supplySource 字段扩展 | \[ProjectMainStory](ProjectMainStory/README.md) |
+
+
+
+> 面试时优先展示该目录。内容包含真实参与任务、技术调用链、脱敏代码证据、5～10 分钟讲稿和高频追问。
+
 | Day01 | 项目概览与 BFF 整体结构 | \[Day01 README](Day01/README.md) | 理解项目背景、BFF 定位、整体调用链 |
 
 | Day02 | biz 统一入口与动态路由 | \[Day02 README](Day02/README.md) | 理解 moduleName / serviceName / funcName 如何定位业务方法 |

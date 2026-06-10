@@ -1,0 +1,11 @@
+{
+"moduleName": "commodity",
+"serviceName": "search",
+"funcName": "searchItem",
+"param": {
+"supplySource": "自营",
+"pageIndex": 0,
+"pageSize": 10
+},
+"description": "biz 云函数内部调用示例。"
+}

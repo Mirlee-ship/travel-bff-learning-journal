@@ -1,0 +1,32 @@
+{
+"method": "POST",
+"path": "/commodity/search-item",
+"headers": {
+"Content-Type": "application/json"
+},
+"body": {
+"supplySource": "自营",
+"minSalePrice": 0,
+"maxSalePrice": 99999900,
+"minCostDays": 1,
+"maxCostDays": 7,
+"sortType": "SALE_PRICE_ASC",
+"pageIndex": 0,
+"pageSize": 10
+},
+"description": "脱敏的旅行社商品搜索请求，不包含真实测试环境域名。"
+}
+
+FILE: ProjectMainStory/examples/cloud-function-request.json
+
+{
+"moduleName": "commodity",
+"serviceName": "search",
+"funcName": "searchItem",
+"param": {
+"supplySource": "自营",
+"pageIndex": 0,
+"pageSize": 10
+},
+"description": "biz 云函数内部调用示例。"
+}
