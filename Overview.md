@@ -102,6 +102,8 @@
 
 | Day14 | 接口测试、前后端联调与错误定位 | \[Day14 README](Day14/README.md) | 理解 Network 检查、参数核对、响应分类、traceId 日志定位和最小复现 |
 
+| Day16 | 性能优化、N+1 查询与批量处理 | \[Day16 README](Day16/README.md) | 理解 N+1、批量查询、Map 回填、受控并发、分页和字段裁剪 |
+
 \---
 
 
