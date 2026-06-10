@@ -1,92 +1,90 @@
-Day08: Batch Export Call Chain
+\# Day08：订单分片导出调用链
 
-Full call chain
+
+
+\## 完整调用链
+
+
+
+```mermaid
 
 flowchart TD
 
-&#x20;   A\["Order dashboard page"] --> B\["User selects filters"]
+&#x20;   A\["后台订单页面"] --> B\["用户选择筛选条件"]
 
-&#x20;   B --> C\["User clicks export"]
+&#x20;   B --> C\["用户点击导出"]
 
-&#x20;   C --> D\["Keep the same list filters"]
+&#x20;   C --> D\["保留列表筛选条件"]
 
-&#x20;   D --> E\["Request batchDownloadTradeOrderRawData"]
+&#x20;   D --> E\["请求 batchDownloadTradeOrderRawData"]
 
-&#x20;   E --> F\["biz unified entry"]
+&#x20;   E --> F\["进入 biz/index.ts 统一入口"]
 
-&#x20;   F --> G\["Route to trade-bff web service"]
+&#x20;   F --> G\["路由到 trade-bff / web"]
 
-&#x20;   G --> H\["Read pageIndex and pageSize"]
+&#x20;   G --> H\["读取 pageIndex 和 pageSize"]
 
-&#x20;   H --> I\["Query current batch"]
+&#x20;   H --> I\["查询当前批次订单"]
 
-&#x20;   I --> J\["Convert export fields"]
+&#x20;   I --> J\["补充并转换导出字段"]
 
-&#x20;   J --> K\["Build headerMap and data"]
+&#x20;   J --> K\["生成 headerMap 和 data"]
 
-&#x20;   K --> L\["Return current batch"]
+&#x20;   K --> L\["返回当前批次数据"]
 
-&#x20;   L --> M{"More batches"}
+&#x20;   L --> M{"是否还有下一批"}
 
-&#x20;   M -->|Yes| N\["Increase pageIndex"]
+&#x20;   M -->|是| N\["pageIndex 加一"]
 
 &#x20;   N --> E
 
-&#x20;   M -->|No| O\["Finish collecting export data"]
+&#x20;   M -->|否| O\["结束数据收集"]
 
-简化版调用链
+&#x20;   O --> P\["生成或保存最终导出结果"]
 
-后台选择筛选条件
+```
+
+
+
+\## 简化版调用链
+
+
+
+```text
+
+后台选择订单条件
 
 → 点击导出
 
 → 保留列表筛选条件
 
-→ 请求 RawData 导出接口
+→ 请求当前批次
 
-→ 按 pageIndex 和 pageSize 查询当前批次
+→ pageIndex + pageSize 分片查询
 
-→ 组装 headerMap 和 data
+→ 转换导出字段
 
-→ 返回当前批次
+→ 返回 headerMap + data
 
-→ 继续请求下一批
+→ 判断是否还有下一批
 
-→ 完成数据收集
+→ 继续查询或结束
 
-中文讲解
-
-运营先在订单后台选择筛选条件。
-
-点击导出时，需要保留与列表相同的筛选条件。
-
-请求通过 biz 入口路由到 trade-bff / web。
-
-导出接口根据 pageIndex 和 pageSize 查询当前批次。
-
-当前批次数据会转换成导出字段结构。
-
-接口返回 headerMap + data。
-
-如果还有数据，递增 pageIndex 获取下一批。
+```
 
 
 
-说明：最终合并数据和生成文件的位置，以项目真实实现为准。
+\## 面试讲解重点
 
 
 
-面试讲解重点
+1\. 页面分页用于展示当前页，导出分片用于获取完整结果。
 
-导出不能只使用当前页数据。
+2\. 同一次导出中，筛选条件保持不变，主要递增 `pageIndex`。
 
-导出和列表必须尽量保持筛选口径一致。
+3\. 分片可以降低单次查询、响应体和内存压力。
 
-pageIndex 和 pageSize 用于拆分大结果集。
+4\. `headerMap` 表示导出列定义，`data` 表示当前批次数据。
 
-headerMap 表示导出列映射。
-
-data 表示当前批次的行数据。
-
-分片降低单次请求的超时和内存风险。
+5\. 一批失败时具备按批重新处理的条件。
 

@@ -1,36 +1,56 @@
-Day07: getOrderById Call Chain
+\# Day07：订单详情接口调用链
 
-Full call chain
+
+
+\## 完整调用链
+
+
+
+```mermaid
 
 flowchart TD
 
-&#x20;   A\["Order list page"] --> B\["User clicks order details"]
+&#x20;   A\["订单列表页面"] --> B\["用户点击订单详情"]
 
-&#x20;   B --> C\["Frontend gets tradeOrderId"]
+&#x20;   B --> C\["前端取得 tradeOrderId"]
 
-&#x20;   C --> D\["Request getOrderById"]
+&#x20;   C --> D\["请求 getOrderById"]
 
-&#x20;   D --> E\["biz unified entry"]
+&#x20;   D --> E\["进入 biz/index.ts 统一入口"]
 
-&#x20;   E --> F\["Route to trade-bff / web service"]
+&#x20;   E --> F\["读取路由字段"]
 
-&#x20;   F --> G\["Query basic order information"]
+&#x20;   F --> G\["定位 trade-bff / web"]
 
-&#x20;   G --> H\["Query commodity information"]
+&#x20;   G --> H\["执行 getOrderById"]
 
-&#x20;   H --> I\["Query fulfillment information"]
+&#x20;   H --> I\["校验订单 ID 和用户权限"]
 
-&#x20;   I --> J\["Query tourism information"]
+&#x20;   I --> J\["查询订单基础信息"]
 
-&#x20;   J --> K\["Query group and related order information"]
+&#x20;   J --> K\["查询商品信息"]
 
-&#x20;   K --> L\["Build detail page modules"]
+&#x20;   K --> L\["查询履约信息"]
 
-&#x20;   L --> M\["Return aggregated order detail"]
+&#x20;   L --> M\["查询旅游和出行信息"]
 
-&#x20;   M --> N\["Frontend renders detail page"]
+&#x20;   M --> N\["查询拼团或关联订单信息"]
 
-简化版调用链
+&#x20;   N --> O\["按页面模块组装订单详情"]
+
+&#x20;   O --> P\["统一入口包装响应"]
+
+&#x20;   P --> Q\["前端渲染详情页面"]
+
+```
+
+
+
+\## 简化版调用链
+
+
+
+```text
 
 订单列表点击详情
 
@@ -38,43 +58,31 @@ flowchart TD
 
 → 请求 getOrderById
 
+→ 校验权限
+
 → 查询订单基础信息
 
-→ 补充商品、履约、旅游、拼团和关联订单信息
+→ 补充商品、履约和旅游信息
 
-→ 组装详情模块
+→ 组装详情页模型
 
 → 返回前端
 
-中文讲解
-
-运营先在订单列表中点击详情。
-
-前端从当前订单行中取得 tradeOrderId。
-
-请求经过 biz 统一入口。
-
-入口路由到 trade-bff / web / getOrderById。
-
-后端查询订单基础信息，并补充详情页所需的关联模块。
-
-最终组装成详情页结构返回前端。
+```
 
 
 
-说明：图中各模块表达逻辑职责，不代表未经源码确认的固定串行调用顺序。
+\## 面试讲解重点
 
 
 
-面试讲解重点
+1\. `tradeOrderId` 用于定位具体订单。
 
-getOrderById 是订单详情聚合接口。
+2\. 详情接口不是只查询一张订单表，而是页面聚合接口。
 
-核心入参是 tradeOrderId。
+3\. BFF 根据页面需要组装多个业务模块的数据。
 
-详情页数据可能涉及多个业务域。
+4\. 即使知道订单 ID，也必须结合 `userContext` 校验数据权限。
 
-聚合放在后端可以减少前端多接口调用。
-
-返回结构按详情页模块组织，而不是直接暴露数据库原始记录。
+5\. 某些非核心模块为空，不一定代表接口整体失败。
 
