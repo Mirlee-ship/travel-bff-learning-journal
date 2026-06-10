@@ -10,37 +10,37 @@
 
 flowchart TD
 
-&#x20;   A\["后台订单页面"] --> B\["用户选择筛选条件"]
+    A\["后台订单页面"] --> B\["用户选择筛选条件"]
 
-&#x20;   B --> C\["用户点击导出"]
+    B --> C\["用户点击导出"]
 
-&#x20;   C --> D\["保留列表筛选条件"]
+    C --> D\["保留列表筛选条件"]
 
-&#x20;   D --> E\["请求 batchDownloadTradeOrderRawData"]
+    D --> E\["请求 batchDownloadTradeOrderRawData"]
 
-&#x20;   E --> F\["进入 biz/index.ts 统一入口"]
+    E --> F\["进入 biz/index.ts 统一入口"]
 
-&#x20;   F --> G\["路由到 trade-bff / web"]
+    F --> G\["路由到 trade-bff / web"]
 
-&#x20;   G --> H\["读取 pageIndex 和 pageSize"]
+    G --> H\["读取 pageIndex 和 pageSize"]
 
-&#x20;   H --> I\["查询当前批次订单"]
+    H --> I\["查询当前批次订单"]
 
-&#x20;   I --> J\["补充并转换导出字段"]
+    I --> J\["补充并转换导出字段"]
 
-&#x20;   J --> K\["生成 headerMap 和 data"]
+    J --> K\["生成 headerMap 和 data"]
 
-&#x20;   K --> L\["返回当前批次数据"]
+    K --> L\["返回当前批次数据"]
 
-&#x20;   L --> M{"是否还有下一批"}
+    L --> M{"是否还有下一批"}
 
-&#x20;   M -->|是| N\["pageIndex 加一"]
+    M -->|是| N\["pageIndex 加一"]
 
-&#x20;   N --> E
+    N --> E
 
-&#x20;   M -->|否| O\["结束数据收集"]
+    M -->|否| O\["结束数据收集"]
 
-&#x20;   O --> P\["生成或保存最终导出结果"]
+    O --> P\["生成或保存最终导出结果"]
 
 ```
 

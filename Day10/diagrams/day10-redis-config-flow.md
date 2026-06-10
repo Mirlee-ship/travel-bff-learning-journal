@@ -10,25 +10,25 @@
 
 flowchart TD
 
-&#x20;   A\["请求进入 biz/index.ts"] --> B\["执行统一入口逻辑"]
+    A\["请求进入 biz/index.ts"] --> B\["执行统一入口逻辑"]
 
-&#x20;   B --> C\["获取 Redis 客户端实例"]
+    B --> C\["获取 Redis 客户端实例"]
 
-&#x20;   C --> D\["通过 hget 读取 tokenKey"]
+    C --> D\["通过 hget 读取 tokenKey"]
 
-&#x20;   D --> E{"是否读取到配置"}
+    D --> E{"是否读取到配置"}
 
-&#x20;   E -->|是| F\["写入 process.env.authorizationTokenInside"]
+    E -->|是| F\["写入 process.env.authorizationTokenInside"]
 
-&#x20;   F --> G\["继续执行动态路由"]
+    F --> G\["继续执行动态路由"]
 
-&#x20;   G --> H\["调用具体业务方法"]
+    G --> H\["调用具体业务方法"]
 
-&#x20;   H --> I\["业务方法调用内部服务"]
+    H --> I\["业务方法调用内部服务"]
 
-&#x20;   E -->|否| J\["记录配置缺失日志"]
+    E -->|否| J\["记录配置缺失日志"]
 
-&#x20;   J --> K\["返回错误或停止请求"]
+    J --> K\["返回错误或停止请求"]
 
 ```
 
@@ -68,9 +68,9 @@ const redis = getRedisInstance()
 
 const tokenKey = await redis.hget(
 
-&#x20; 'global:feature:config',
+  'global:feature:config',
 
-&#x20; 'tokenKey',
+  'tokenKey',
 
 )
 
